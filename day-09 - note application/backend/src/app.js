@@ -6,7 +6,7 @@ const path = require('path')
 
 app.use(express.json())
 app.use(cors())
-app.use(express.static("./src"))
+app.use(express.static("./public"))
 // post request
 app.post('/notes',async (req,res)=>{
     console.log(req.body);

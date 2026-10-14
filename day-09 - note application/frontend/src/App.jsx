@@ -19,7 +19,7 @@ const [description, setDescription] = useState("");
 const [editId, setEditId] = useState(null);
 
   const fetchData = () =>{
-    axios.get('http://localhost:3000/notes')
+    axios.get('https://backend-1-h1cu.onrender.com/notes')
     .then((res)=>{
       console.log(res.data);
       setNotes(res.data.note)
@@ -41,7 +41,7 @@ const [editId, setEditId] = useState(null);
 
     if (editId) {
       // PATCH: Update existing note
-      axios.patch(`http://localhost:3000/notes/${editId}`, data)
+      axios.patch(`https://backend-1-h1cu.onrender.com/notes/${editId}`, data)
         .then(() => {
           setNotes(notes.map((item) =>
             item._id === editId
@@ -55,7 +55,7 @@ const [editId, setEditId] = useState(null);
         });
     } else {
       // POST: Add new note
-      axios.post("http://localhost:3000/notes", data)
+      axios.post("https://backend-1-h1cu.onrender.com/notes", data)
         .then((res) => {
           setNotes([...notes, res.data.note]);
           setTitle("");
@@ -67,7 +67,7 @@ const [editId, setEditId] = useState(null);
   
 
   const handleDelete = (id) =>{
-    axios.delete("http://localhost:3000/notes/"+id)
+    axios.delete("https://backend-1-h1cu.onrender.com/notes/"+id)
     .then(()=>{
       console.log(`Note with id ${id} is deleted`);
       fetchData()
